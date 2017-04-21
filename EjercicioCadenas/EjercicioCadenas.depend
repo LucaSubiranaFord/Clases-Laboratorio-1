@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1492738059 source:c:\users\pc\desktop\codeblocks projects\ejerciciocadenas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
