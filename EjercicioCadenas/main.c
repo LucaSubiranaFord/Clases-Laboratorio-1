@@ -6,6 +6,7 @@ int main()
 {
 
     char nombre[20], apellido[20], buffer[200];
+    int i;
 
     do
     {
@@ -16,6 +17,9 @@ int main()
     }while ((strlen(buffer) > 19));
 
     strcpy(nombre, buffer);
+
+
+
 
 
     do
@@ -29,44 +33,31 @@ int main()
 
     strcpy(apellido, buffer);
 
-    int i;
-
-
-    if(nombre[0] >= 'a' && nombre[0] <= 'z')
-    {
-        nombre[0] = nombre[0] - 32 ;
-    }
-
-    for(i=1; i<strlen(nombre); i++)
-    {
-        if(nombre[i] >= 'A' && nombre[i] <= 'Z' )
-        {
-             nombre[i] = nombre[i] + 32;
-            }
-    }
-
-
-    if(apellido[0] >= 'a' && apellido[0] <= 'z')
-    {
-        apellido[0] = apellido[0] - 32;
-    }
-
-    for(i=1; i<strlen(apellido); i++)
-    {
-        if(apellido[i] >= 'A' && apellido[i] <= 'Z' )
-        {
-             apellido[i] = apellido[i] + 32;
-            }
-    }
 
 
 
-    char apeNombre[strlen(nombre) + strlen(apellido)];
+
+    char apeNombre[13];
     strcat(apeNombre, apellido);
     strcat(apeNombre, ", ");
     strcat(apeNombre, nombre);
 
-    printf("%s", apeNombre);
+    strlwr(apeNombre);
+
+
+
+  for(i=0;i<strlen(apeNombre);i++)
+    {
+        if( apeNombre[i] == 32 )
+        {
+            apeNombre[(i+1)] = toupper(apeNombre[(i+1)]);
+            break;
+        }
+    }
+
+    apeNombre[0] = toupper(apeNombre[0]);
+
+printf("%s", apeNombre);
 
 
 
