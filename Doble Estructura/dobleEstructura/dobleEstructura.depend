@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1493303223 source:c:\users\alumno\desktop\dobleestructura\main.c
+	<stdio.h>
+	<stdlib.h>
+
