@@ -178,6 +178,9 @@ void mostrarSeriesConClientes(eCliente clientes[], eSerie series[], int tamC, in
 
 void mostrarSerieLoser(eLoser losers[], eCliente clientes[], eSerie series[], int tamC, int tamS)
 {
+
+
+    //REVISAR FUNCION. SE PUEDE HACER SIN FLAG SI QUIERO !
     int i;
     int j;
     for(i=0; i<tamS; i++) // restauro todos los contadores a 0
@@ -192,27 +195,33 @@ void mostrarSerieLoser(eLoser losers[], eCliente clientes[], eSerie series[], in
         {
             if(losers[i].idSerie == clientes[j].idSerie)
             {
-                losers[i].cont += 1;
+                losers[i].cont++;
             }
         }
     }
 
-    int menorSerieCont;
-    int menorSerieId;
+    int flag = 0;
+    int min = losers[0].cont;
     for(i=0; i<tamS; i++)
     {
-        if(menorSerieCont > losers[i].cont)
+        if(flag == 0 || losers[i].cont < min)
         {
-            menorSerieId = losers[i].idSerie;
+            flag = 1;
+            min = losers[i].cont;
         }
     }
     for(i=0; i<tamS; i++)
     {
-
-        if(menorSerieId == series[i].idSerie)
+        if(min == losers[i].cont)
         {
-            printf("La serie con menos espectadores es: %s", series[i].titulo );
-            break;
+            for(j=0;j<tamS;j++)
+            {
+                if(losers[i].idSerie == series[j].idSerie)
+                {
+                    printf("El nombre de la mas loser es: %d", series[j].titulo);
+                    break;
+                }
+            }
         }
 
     }
@@ -223,8 +232,11 @@ void mostrarClientesTBBT(eCliente clientes[], eSerie series[], int tamC, int tam
     int i;
     int j;
     printf("\nTBBT: \n");
+    // COMPARAR CON EL NOMBRE, PRIMERO BUSCAR EL ID A TRAVES DEL NOMBRE Y DESPUES CON EL ID ENCONTRAR EL NOMBRE.
 
-        for(j=0; j<tamC; j++)
+
+    // despues aplicar este codigo!
+        for(i=0; i<tamC; i++)
             {
                 if(clientes[j].idSerie == 100)
                 {
