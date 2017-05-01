@@ -1,0 +1,246 @@
+/** \brief Ingreso de un FLOAT
+ *
+ *\return numero ingresado (float)
+ *
+ */
+float ingresoFloat();
+
+
+
+/** \brief Ingreso de un INT
+ *
+ *\return numero ingresado (float)
+ *
+ */
+int ingresoInt();
+
+
+
+
+/**
+ * Obtiene el primer indice libre del array.
+ * @param lista el array se pasa como parametro.
+ * @return el primer indice disponible
+ */
+int obtenerEspacioLibre(ePersona lista[], int tam);
+
+
+
+/**\brief muestra a la persona a elegir
+ * \param array de tipo ePersona
+ */
+mostrarPersona(ePersona lista[], int persona);
+
+
+
+/** \brief muestra a todas las personas dadas de alta
+ * \param un array de la clase ePersona
+ * \param tamaño del array
+ */
+mostrarLista(ePersona lista[], int tam);
+
+
+
+/** \brief Ordena los nombres en orden alfabetico
+ * \param un array de la clase ePersona
+ * \param tamaño del array
+ */
+ordenarAlfabeticamente(ePersona lista[], int tam);
+
+
+
+/** \brief Ordena el vector en orden numeral
+ * \param un array
+ * \param tamaño del array
+ */
+ordenarNumeral(int[], int);
+
+
+
+
+/** \brief BAJA a una persona
+ * \param un array de la clase ePersona
+ * \param tamaño del array
+ */
+borrarPersona(ePersona lista[], int tam);
+
+
+
+
+/** \brief inicializa todos los estados en 0
+ * \param un array de la clase ePersona
+ * \param tamaño del array
+ */
+inicializarEstados(ePersona lista[], int tam);
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+
+int ingresoInt()
+{
+
+	int x;
+	printf("\nIngrese un numero: ");
+	scanf("%d", &x);
+	return x;
+
+}
+
+
+
+
+float ingresoFloat()
+{
+    float x;
+    printf("\nIngrese un numero: \n");
+    scanf("%f", &x);
+    return x;
+}
+
+
+
+int obtenerEspacioLibre(ePersona lista[], int tam)
+{
+    int i;
+    int flag = 0;
+    int espacioLibre;
+
+    for(i=0;i<tam;i++)
+    {
+        if(lista[i].estado == 0)
+        {
+            espacioLibre = i;
+            flag = 1;
+            break;
+        }
+    }
+
+    if(flag == 0)
+    {
+        espacioLibre = -1;
+    }
+
+    return espacioLibre;
+}
+
+
+
+mostrarPersona(ePersona lista[], int persona)
+{
+    printf("Nombre: %s, Edad: %d, DNI: %d\n",lista[persona].nombre, lista[persona].edad, lista[persona].dni);
+}
+
+
+
+
+mostrarLista(ePersona lista[], int tam)
+{
+      int i;
+     for(i=0; i<tam; i++)
+            {
+                if(lista[i].estado == 1)
+                {
+                    mostrarPersona(lista, i);
+                }
+            }
+}
+
+
+
+
+ordenarAlfabeticamente(ePersona lista[], int tam)
+{
+    int i, j;
+    ePersona auxPersona;
+
+    for(i=0; i<tam-1; i++)
+    {
+        for(j=i+1; j<tam; j++)
+        {
+            if(strcmp(lista[i].nombre, lista[j].nombre) > 0)
+            {
+                auxPersona = lista[i];
+                lista[i] = lista[j];
+                lista[j] = auxPersona;
+
+            }
+        }
+
+    }
+}
+
+
+
+
+ordenarNumeral(int vec[], int FIL)
+{
+    int i,j ;
+    int aux;
+
+        for
+    (i=0; i<FIL-1; i++)
+    {
+        for
+        (j=i+1; j<FIL; j++)
+        {
+            if
+            (vec[i]>vec[j])
+            {
+                aux=vec[i];
+                vec[i]=vec[j];
+                vec[j]=aux;
+            }
+        }
+    }
+
+}
+
+
+
+borrarPersona(ePersona lista[], int tam)
+{
+    int flagConfirmarEliminar = 0;
+    int i;
+    int borrarDni;
+    char eliminarPersona;
+
+    printf("Ingrese el DNI de la persona que quiere eliminar: ");
+    scanf("%d", &borrarDni);
+
+    for(i=0; i<tam; i++)
+    {
+        if(lista[i].estado == 1 && lista[i].dni == borrarDni)
+        {
+            mostrarPersona(lista, i);
+            printf("\nSeguro quiere eliminar a esta persona? (s/n)");
+            eliminarPersona = getche();
+            flagConfirmarEliminar = 1;
+
+
+            if(eliminarPersona == 's')
+            {
+                printf("\nHa sido eliminado!");
+                lista[i].estado = 0;
+                break;
+            }
+            else
+            {
+                printf("\nAccion cancelada");
+                break;
+            }
+        }
+
+    }
+
+
+
+
+
+inicializarEstados(ePersona lista[], int tam)
+{
+
+int i;
+    for(i=0; i<tam; i++)
+    {
+        lista[i].estado = 0;
+    }
