@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1493854614 source:c:\users\pc\desktop\facultad\parcial2dale\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

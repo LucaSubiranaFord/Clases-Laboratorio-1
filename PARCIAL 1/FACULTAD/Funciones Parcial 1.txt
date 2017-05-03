@@ -542,3 +542,34 @@ serieMenosPopular(eContador contador[], eCliente clientes[], eSerie series[], eC
     }
 
 }
+
+
+
+
+
+////////////////////////////////CONTADOR MAS SENCILLO //////////////////////////////////
+mayorCantVuelos(eAviones avion[], eVuelos vuelo[], eContador contador[], int tam)
+{
+    int i;
+
+    int auxMax = contador[0].contador;
+    int auxIdAvion = contador[0].idAvion;
+
+    for(i=0; i<tam; i++)
+    {
+        if(contador[i].contador > auxMax)
+        {
+            auxMax = contador[i].contador;
+            auxIdAvion = contador[i].idAvion;
+        }
+    }
+
+    for(i=0; i<tam; i++)
+    {
+        if(auxIdAvion == avion[i].matricula)
+        {
+            printf("%d\n", avion[i].matricula);
+        }
+    }
+
+}

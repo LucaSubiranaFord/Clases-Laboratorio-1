@@ -1,6 +1,64 @@
+int flagSeguir = 0;
+    int opcion;
+    while(flagSeguir == 0)
+    {
+
+        printf("1.-ALTAS AVION\n");
+        printf("2.-MODIFICAR DATOS AVION\n");
+        printf("3.-BAJA AVION\n");
+        printf("4.-NUEVO VUELO\n");
+        printf("5.-SUSPENDER VUELO\n");
+        printf("6.-LISTAR\n");
+        printf("\n1.-Ingrese una opcion: \n");
+        scanf("%d",&opcion);
+
+        switch(opcion)
+        {
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+            case 4:
+
+            break;
+            case 5:
+
+            break;
+            case 6:
+
+            break;
+        default:
+                printf("\nIngrese una opcion correcta!\n");
+            break;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////
+
+
+
+
+
 while()
         {
            
+ 	
 
                 switch()
                 {
@@ -21,3 +79,23 @@ while()
 
         
         }
+
+
+
+/////////////////////////////////////
+   for(i=0; i<tam; i++)
+    {
+        while()
+        {
+            
+        }
+    }
+
+
+////////////////////
+
+#ifndef FUNCIONES_H_INCLUDED
+#define FUNCIONES_H_INCLUDED
+
+
+#endif 
