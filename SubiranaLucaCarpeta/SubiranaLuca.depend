@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1493909315 source:d:\subiranaluca\funciones.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1493909171 d:\subiranaluca\funciones.h
+
+1493909160 source:d:\subiranaluca\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
