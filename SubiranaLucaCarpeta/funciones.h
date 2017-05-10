@@ -5,7 +5,7 @@ typedef struct
     char apellido[20][50];
     char apeNombre[20][100];
     char direccion[20][50];
-    int tarjetaNum;
+    long long tarjetaNum; //SE DECLARA LONG LONG DEBIDO A QUE LA TARJETA DEBE TENER 16 NUMEROS DE LONGITUD.
     int estado;
 
 } eDueno;
@@ -13,19 +13,15 @@ typedef struct
 typedef struct
 {
     char patente[20][10];
-    int marca;
+    char marca[4][10];
     int idDueno;
     int horario;
     int estado;
     int salida;
+    int estadoEstadia;
 } eAuto;
 
-typedef struct
-{
-    int marca;
-    int precio;
 
-} eContador;
 
 
 /**
@@ -33,7 +29,7 @@ typedef struct
  * @param Array Contador
  * @param Tamaño del array
  */
-inicializarContador(eContador[],int);
+inicializarContador(int[],int);
 
 
 
@@ -56,7 +52,7 @@ inicializarEstados(eAuto[], eDueno[], int);
  * @param Array dueno
  * @param Tamaño del array
  */
-listado(eContador[], eAuto[], eDueno[], int);
+listado(int[], eAuto[], eDueno[], int);
 
 
 
@@ -68,7 +64,7 @@ listado(eContador[], eAuto[], eDueno[], int);
  * @param Array auto
  * @param Tamaño del array
  */
-egresoAutomovil(eContador[], eDueno[], eAuto[], int);
+egresoAutomovil(int[], eDueno[], eAuto[], int);
 
 
 

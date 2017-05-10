@@ -3,11 +3,6 @@
 #include <string.h>
 #include "funciones.h"
 #define S 20
-#define ALPHA_ROMEO 500
-#define FERRARI 501
-#define AUDI 502
-#define OTRO 503
-
 
 int main()
 {
@@ -16,12 +11,12 @@ int main()
     int flagIngresoAuto = 0;
     int espLibre, espLibreAuto;
     eDueno dueno[S];
-    eContador contador[4];
+    int contadorPrecio[4];
     eAuto automovil[S];
     int flagSeguir = 0;
     int opcion;
     inicializarEstados(automovil, dueno, S);
-    inicializarContador(contador,S);
+    inicializarContador(contadorPrecio,S);
     while(flagSeguir == 0)
     {
 
@@ -58,9 +53,10 @@ int main()
             }
             break;
         case 3:
-            flagAutomovil = 1;
+
             if(flagIngreso == 1)
             {
+                flagAutomovil = 1;
                 espLibreAuto = obtenerEspacioLibreAuto(automovil,S);
                 altaAuto(automovil, dueno, espLibreAuto, S);
             }
@@ -73,7 +69,7 @@ int main()
         case 4:
             if(flagAutomovil == 1)
             {
-               egresoAutomovil(contador, dueno, automovil, S);
+               egresoAutomovil(contadorPrecio, dueno, automovil, S);
             }else
             {
                printf("Primero debe ingresar un automovil!");
@@ -81,7 +77,7 @@ int main()
 
             break;
         case 5:
-            listado(contador, automovil, dueno, S);
+            listado(contadorPrecio, automovil, dueno, S);
             break;
 
         default:

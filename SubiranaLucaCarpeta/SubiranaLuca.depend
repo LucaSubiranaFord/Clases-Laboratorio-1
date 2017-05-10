@@ -13,3 +13,17 @@
 	<string.h>
 	"funciones.h"
 
+1494435293 source:c:\users\pc\desktop\pruebagithub-master\subiranalucacarpeta\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1494436569 c:\users\pc\desktop\pruebagithub-master\subiranalucacarpeta\funciones.h
+
+1494443826 source:c:\users\pc\desktop\pruebagithub-master\subiranalucacarpeta\funciones.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
