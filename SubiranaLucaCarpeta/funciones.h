@@ -19,6 +19,7 @@ typedef struct
     int estado;
     int salida;
     int estadoEstadia;
+    int auxHorarioTotal;
 } eAuto;
 
 cargarAuto(eAuto[], int[]);

@@ -79,7 +79,11 @@ int main()
 
             break;
         case 5:
-            listado(contadorPrecio, automovil, dueno, S);
+
+
+               listado(contadorPrecio, automovil, dueno, S);
+
+
             break;
 
         default:

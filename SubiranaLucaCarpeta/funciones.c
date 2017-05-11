@@ -15,7 +15,7 @@ cargarAuto(eAuto automovil[], int contador[])
     int salida[10] = {14,15,16,17,18,19,20,21,22,23};
     int estadoEstadia;
 
-    for(i=0;i<10;i++)
+    for(i=0; i<10; i++)
     {
         strcpy(automovil[i].patente, patente[i]);
         strcpy(automovil[i].marca, marca[i]);
@@ -26,10 +26,10 @@ cargarAuto(eAuto automovil[], int contador[])
         automovil[i].estadoEstadia = 1;
     }
 
-        contador[0] = 400;
-        contador[1] = 800;
-        contador[2] = 1200;
-        contador[3] = 200;
+    contador[0] = 400;
+    contador[1] = 800;
+    contador[2] = 1200;
+    contador[3] = 200;
 
 }
 
@@ -45,7 +45,7 @@ cargarDueno(eDueno dueno[])
     long long tarjetaNum[10][16] = {489489,498419861,894984189,418941894,4169418991,41897489,48941891,534861,89498498,4654189}; //SE DECLARA LONG LONG DEBIDO A QUE LA TARJETA DEBE TENER 16 NUMEROS DE LONGITUD.
     int estado;
 
-    for(i=0;i<10;i++)
+    for(i=0; i<10; i++)
     {
         dueno[i].idDueno = idDueno[i];
         strcpy(dueno[i].nombre, nombre[i]);
@@ -74,6 +74,7 @@ inicializarEstados(eAuto automovil[], eDueno dueno[], int tam)
         automovil[i].estado = 0;
         dueno[i].estado = 0;
         automovil[i].estadoEstadia = 0;
+        automovil[i].auxHorarioTotal = 0;
     }
 }
 
@@ -83,7 +84,7 @@ listado(int contador[], eAuto automovil[], eDueno dueno[], int tam)
     int aux;
 
 
-for(i=0; i<tam-1; i++) //ORDENAMIENTO DE COCHES POR HORA
+    for(i=0; i<tam-1; i++) //ORDENAMIENTO DE COCHES POR HORA
     {
         for
         (j=i+1; j<tam; j++)
@@ -99,17 +100,17 @@ for(i=0; i<tam-1; i++) //ORDENAMIENTO DE COCHES POR HORA
     }
 
 
-  for(i=0; i<tam; i++) //MUESTRA DE COCHE POR DUENO, ORDENAMIENTO POR HORA Y PATENTE
+    for(i=0; i<tam; i++) //MUESTRA DE COCHE POR DUENO, ORDENAMIENTO POR HORA Y PATENTE
     {
 
-            for(j=0; j<tam; j++)
+        for(j=0; j<tam; j++)
+        {
+            if(automovil[i].idDueno == dueno[j].idDueno && automovil[i].estado == 1)
             {
-                if(automovil[i].idDueno == dueno[j].idDueno && automovil[i].estado == 1)
-                {
-                    printf("\nNombre: %s, Patente: %s, Marca: %s, Hora entrada: %d\n",dueno[j].apeNombre, automovil[i].patente, automovil[i].marca, automovil[i].horario);
-                    break;
-                }
+                printf("\nNombre: %s, Patente: %s, Marca: %s, Hora entrada: %d\n",dueno[j].apeNombre, automovil[i].patente, automovil[i].marca, automovil[i].horario);
+                break;
             }
+        }
 
     }
 
@@ -131,7 +132,7 @@ for(i=0; i<tam-1; i++) //ORDENAMIENTO DE COCHES POR HORA
         }
     }
 
-   //RECAUDACION TOTAL POR MARCA
+    //RECAUDACION TOTAL POR MARCA
     printf("\nRecaudacion total por marca: \n\n");
     printf("Alpha Romeo: %d\n ", contador[0]);
     printf("Ferrari: %d\n ", contador[1]);
@@ -150,7 +151,37 @@ for(i=0; i<tam-1; i++) //ORDENAMIENTO DE COCHES POR HORA
     printf("\n\nLa recaudacion total del estacionamiento es: %d\n", recaudacionTotal);
 
 
+    //AUTO QUE MAS TIEMPO ESTUVO
 
+    for(i=0; i<20; i++)
+    {
+        automovil[i].auxHorarioTotal = (automovil[i].salida - automovil[i].horario);
+    }
+    int mayor;
+    mayor = automovil[0].auxHorarioTotal;
+    for(i=0; i<20; i++)
+    {
+        if(mayor<automovil[i].auxHorarioTotal)
+        {
+            mayor = automovil[i].auxHorarioTotal;
+        }
+    }
+
+
+    for(i=0; i<tam; i++)
+    {
+        for(j=0; j<tam; j++)
+        {
+            if(automovil[i].auxHorarioTotal == mayor)
+            {
+                if(automovil[i].idDueno == dueno[j].idDueno)
+                {
+                    printf("El id del dueno con el automovil con mayor estadia es: %d con %d horas dentro", dueno[j].idDueno, mayor );
+                    break;
+                }
+            }
+        }
+    }
 
 
 }
@@ -162,7 +193,7 @@ egresoAutomovil(int contador[], eDueno dueno[], eAuto automovil[], int tam)
     int i, j;
     int auxSalida;
     int auxEntrada;
-    char auxPatente[1][10];
+    char auxPatente[10];
 
     printf("Ingrese la patente del auto: ");
     fflush(stdin);
@@ -190,7 +221,7 @@ egresoAutomovil(int contador[], eDueno dueno[], eAuto automovil[], int tam)
 
     strcpy(auxPatente, buffer);
 
-     for(i=0; i<tam; i++)
+    for(i=0; i<tam; i++)
     {
         if(strcmp(automovil[i].patente,auxPatente)== 0)
         {
@@ -215,7 +246,7 @@ egresoAutomovil(int contador[], eDueno dueno[], eAuto automovil[], int tam)
     int pagoPorHora;
     int pagoTotal;
 
-        for(i=0; i<tam; i++)
+    for(i=0; i<tam; i++)
     {
         if(strcmp(auxPatente, automovil[i].patente)==0)
         {
@@ -394,7 +425,7 @@ altaAuto(eAuto automovil[], eDueno dueno[], int espacioLibre, int tam)
 
     }
 
-        automovil[espacioLibre].idDueno = auxId;
+    automovil[espacioLibre].idDueno = auxId;
 
     int auxHorario; //VARIABLE AUXILIAR PARA VERIFICAR HORARIO DE ENTRADA.
 
@@ -409,7 +440,6 @@ altaAuto(eAuto automovil[], eDueno dueno[], int espacioLibre, int tam)
 
 
     automovil[espacioLibre].horario = auxHorario;
-
     automovil[espacioLibre].estado = 1;
     automovil[espacioLibre].estadoEstadia = 1;
 
