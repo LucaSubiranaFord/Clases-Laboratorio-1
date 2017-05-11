@@ -4,6 +4,58 @@
 #include <string.h>
 #define S 20
 
+cargarAuto(eAuto automovil[], int contador[])
+{
+    int i;
+    char patente[10][10] = {"100AS","101EWQ","102DSA","103TRWE","104GRW","105WQE","106HGF","107HG","108TR","109YUT"};
+    char marca[10][12] = {"Alpha Romeo","Ferrari","Audi","Otro","Alpha Romeo","Ferrari","Audi","Otro","Alpha Romeo","Ferrari"};
+    int idDueno[10] = {100,101,102,103,104,105,106,107,108,109};
+    int horario[10] = {12,13,14,15,16,17,18,19,20,21};
+    int estado[10];
+    int salida[10] = {14,15,16,17,18,19,20,21,22,23};
+    int estadoEstadia;
+
+    for(i=0;i<10;i++)
+    {
+        strcpy(automovil[i].patente, patente[i]);
+        strcpy(automovil[i].marca, marca[i]);
+        automovil[i].idDueno = idDueno[i];
+        automovil[i].horario = horario[i];
+        automovil[i].estado = 1;
+        automovil[i].salida = salida[i];
+        automovil[i].estadoEstadia = 1;
+    }
+
+        contador[0] = 400;
+        contador[1] = 800;
+        contador[2] = 1200;
+        contador[3] = 200;
+
+}
+
+
+cargarDueno(eDueno dueno[])
+{
+    int i;
+    int idDueno[10] = {100,101,102,103,104,105,106,107,108,109};
+    char nombre[10][50] = {"Luca","Juan","Pedro","Ivan","Luca","Alejandro","Julian","Romero","Garcia", "Ramiro"};
+    char apellido[10][50] = {"Camaro", "Subirana", "Ford", "Maglietti", "Garcia", "Rial", "Ventura", "Schedule", "Montecarlo", "Otero"};
+    char apeNombre[10][100];
+    char direccion[10][50] = {"AHS 20","TBBT 21","TBBT 23","BB 24","FRIENDS 25","THM 26","TBBT 27","TWD 28","VIKINGS 29","GREYS 30"};
+    long long tarjetaNum[10][16] = {489489,498419861,894984189,418941894,4169418991,41897489,48941891,534861,89498498,4654189}; //SE DECLARA LONG LONG DEBIDO A QUE LA TARJETA DEBE TENER 16 NUMEROS DE LONGITUD.
+    int estado;
+
+    for(i=0;i<10;i++)
+    {
+        dueno[i].idDueno = idDueno[i];
+        strcpy(dueno[i].nombre, nombre[i]);
+        strcpy(dueno[i].apellido, apellido[i]);
+        strcpy(dueno[i].direccion,direccion[i]);
+        dueno[i].tarjetaNum = tarjetaNum[i];
+        dueno[i].estado = 1;
+
+    }
+}
 
 inicializarContador(int contador[], int tam)
 {
@@ -359,6 +411,7 @@ altaAuto(eAuto automovil[], eDueno dueno[], int espacioLibre, int tam)
     automovil[espacioLibre].horario = auxHorario;
 
     automovil[espacioLibre].estado = 1;
+    automovil[espacioLibre].estadoEstadia = 1;
 
 
     mostrarAuto(automovil, espacioLibre);

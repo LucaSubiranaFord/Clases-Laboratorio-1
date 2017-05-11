@@ -27,3 +27,17 @@
 	<stdlib.h>
 	<string.h>
 
+1494512607 source:c:\users\alumno\desktop\pruebagithub-master\subiranalucacarpeta\funciones.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1494512609 c:\users\alumno\desktop\pruebagithub-master\subiranalucacarpeta\funciones.h
+
+1494512514 source:c:\users\alumno\desktop\pruebagithub-master\subiranalucacarpeta\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+

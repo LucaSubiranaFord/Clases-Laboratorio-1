@@ -13,7 +13,7 @@ typedef struct
 typedef struct
 {
     char patente[20][10];
-    char marca[4][10];
+    char marca[10][12];
     int idDueno;
     int horario;
     int estado;
@@ -21,8 +21,8 @@ typedef struct
     int estadoEstadia;
 } eAuto;
 
-
-
+cargarAuto(eAuto[], int[]);
+cargarDueno(eDueno[]);
 
 /**
  * Inicia en 0 el precio del contador

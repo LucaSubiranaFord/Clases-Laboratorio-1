@@ -17,6 +17,8 @@ int main()
     int opcion;
     inicializarEstados(automovil, dueno, S);
     inicializarContador(contadorPrecio,S);
+    cargarDueno(dueno);
+    cargarAuto(automovil, contadorPrecio);
     while(flagSeguir == 0)
     {
 
