@@ -1,0 +1,5 @@
+D:\Mis Documentos\Visual Studio 2012\Projects\Clase1\aplicacionUno\bin\Debug\aplicacionUno.exe.config
+D:\Mis Documentos\Visual Studio 2012\Projects\Clase1\aplicacionUno\bin\Debug\aplicacionUno.exe
+D:\Mis Documentos\Visual Studio 2012\Projects\Clase1\aplicacionUno\bin\Debug\aplicacionUno.pdb
+D:\Mis Documentos\Visual Studio 2012\Projects\Clase1\aplicacionUno\obj\Debug\aplicacionUno.exe
+D:\Mis Documentos\Visual Studio 2012\Projects\Clase1\aplicacionUno\obj\Debug\aplicacionUno.pdb
